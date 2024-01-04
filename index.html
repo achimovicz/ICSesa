@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <title>ICS Achim</title>
+  <meta name="description" content="VFH ICS WEBSTART" />
+  <meta name="author" content="Thomas Onken" />
+  <link rel="stylesheet" type="text/css" href="./css/style.css" />
+
+  <style>
+  /* Hier werden Farben festgelegt */
+/*
+  h1 {
+    color: GREEN;
+  }
+  h2 {
+    color: RED;
+  }
+  */
+  </style>
+
+
+</head>
+
+<body>
+  <header>
+    <nav>
+      <ul class="kopfzeile">
+        <li><a href="index.html">Startseite</a></li>
+        <li><a href="uber-uns.html">Über uns</a></li>
+        <li><a href="dienstleistungen.html">Dienstleistungen</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+      </ul>
+      <ol>
+          <li>eins</li>
+          <li>zwei</li>
+          <li>drei</li>
+      <ol>
+    </nav>
+
+  </header>
+
+    <section>
+      <h5 id="einleitung" class="headline farbverlauf">Website über meinen Hund</h5>
+
+      <section id="gameInput">
+          <span>Havaneser: </span>
+          <select>
+            <option value="" disabled selected>Bitte auswählen...</option>
+            <option value="game1.json">Herkunft</option>
+            <option value="game2.json">Beschreibung</option>
+            <option value="game3.json">Wesen</option>
+          </select>
+        </section>
+        <section id="game-panel">
+          <h2 class="title">Der Havaneser ist eine von der FCI anerkannte Hunderasse aus dem Mittelmeerraum bzw. Kuba.</h2>
+          <a class="ref" target="_blank" href="#">
+            <span class="label"></span>
+          </a>
+          <div><p class="description"></p></div>
+        </section>
+
+
+
+      <textarea id="meinTextfeld" rows="4" cols="50" class="bild-links" oninput="limitChar(this)"></textarea>
+
+
+    <script>
+      window.onload = function() {
+        document.getElementById('meinTextfeld').value = '';
+      };
+    </script>
+
+      <p id="charCounter">500 Characters left</p>
+<h2 class="links-abstand">Name: Kurumi (jap: Wallnuss)</h2>
+<!--
+-->
+    </section>
+
+    <img id="slide" alt="Diashow Bild">
+
+  <script>
+    var i = 0;
+    var images = [];
+    var time = 2000;
+
+    images[0] = "./images/kruru.jpeg";
+    images[1] = "./images/Kurumi1.jpeg";
+    images[2] = "./images/kurumifox.jpeg";
+    images[3] = "./images/kuyoung.jpeg";
+
+    function diashow(){
+      document.getElementById('slide').src = images[i];
+
+      if(i < images.length - 1){
+        i++;
+      } else {
+        i = 0;
+      }
+      setTimeout(diashow, time);
+    }
+
+    window.onload = diashow;
+  </script>
+<!--
+      <textarea rows="4"
+      cols="50"
+      style="position: relative; top: 15px;"
+      class="comment"
+      >
+Eine Textarea
+</textarea>
+<br>
+<br>
+<br>
+  <script src="./js/main.js"></script>
+  <script>
+  document.write("Wer reitet so spät durch Nacht und Wind (Javascript)");
+  </script>
+
+  <script>
+    "use strict";
+    var studierende = ["Achim", "Marc", "Seweryn"];
+    document.write("<br> 1." + studierende[0] + "<br>");
+    document.write("2." + studierende[2] + "\t");
+    document.write("3." + studierende[1] + "<br>");
+  </script>
+  -->
+  <script>
+  let limitChar = (element) => {
+        const maxChar = 500;
+
+        let ele = document.getElementById(element.id);
+        let charLen = ele.value.length;
+
+        let p = document.getElementById('charCounter');
+        p.innerHTML = maxChar - charLen + ' Characters left';
+
+        if (charLen > maxChar)
+        {
+            ele.value = ele.value.substring(0, maxChar);
+            p.innerHTML = 0 + ' characters left';
+        }
+    }
+  </script>
+
+<!--  Experimentierfunktionen
+
+
+
+-->
+
+
+
+<script>
+  "use strict";
+
+  // Textfeld zur Eingabe des JSON-Dateinamens im DOM finden
+  var gameInput = document.querySelector("#gameInput");
+
+  // Auf Änderungen des Textfeldes reagieren
+  var gameSelect = document.querySelector("#gameInput select");
+gameSelect.addEventListener("change", function(event) {
+
+    // Referenz auf das Textfeld
+    var input = this;
+
+    // Eingegebenen Wert auslesen
+    var gameFileName = input.value;
+
+    // Informationen zum Spiel per AJAX laden.
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+         // Inhalt der Daten von JSON in JavaScript-Objekt wandeln
+         var gameData = JSON.parse(this.responseText);
+         // Anzeige für das Spiel mit geladenen Daten aktualisieren
+         updateGamePanel(gameData);
+      }
+    };
+
+    xhttp.open("GET", "./" + gameFileName, true);
+    xhttp.send();
+  });
+
+  var updateGamePanel = function(gameData) {
+    // Anzeigebereich für Spielinformationen im DOM finden
+    var gamePanel = document.querySelector("#game-panel");
+
+    // Titel setzen
+    var title = gamePanel.querySelector(".title");
+    title.innerHTML = gameData.title;
+
+    // Quellenangabe setzen
+    var ref = gamePanel.querySelector(".ref");
+    var label = ref.querySelector(".label");
+    ref.href = gameData.ref;
+    label.innerHTML = gameData.ref;
+
+    // Beschreibung setzen
+    var description = gamePanel.querySelector(".description");
+    description.innerHTML = gameData.description;
+  }
+</script>
+
+
+
+</body>
+</html>

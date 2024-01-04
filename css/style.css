@@ -1,0 +1,175 @@
+body {
+  background-color: #F5F5DC;
+  background-image: url(hundergrund.jpg);
+  background-position: top right;
+background-size: 40% 53%;
+background-repeat: repeat-y;
+background-attachment: scroll;
+
+}
+
+p {
+    font-family: Verdana, sans-serif;
+}
+
+p b {
+    color: #02d92f;
+}
+
+h1, h2, p {
+color: green;
+font-family: Helvetica, sans-serif, serif;
+}
+
+h1 i {
+    color: blue;
+}
+
+p {
+  font-weight: bold;
+  background-color: #c0c0c0;
+  margin-left: 15px;
+}
+
+#charCounter {
+    background-color: transparent;
+    text-decoration: none;
+
+}
+
+textarea {
+  color: black;
+  transition: color is ease;
+  background-color: #FFFF99;
+  font-family: sans-serif;
+  width: 200px;
+  height: 20px;
+  max-width: 2000px;
+  min-width: 200px;
+  max-height: 200px;
+  min-height: : 20px;
+}
+
+.comment {
+  width: 800px;
+}
+
+textarea:hover {
+  color: black;
+}
+
+textarea:active {
+  background-color: grey;
+}
+
+
+
+a:hover {
+  color: green;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.kopfzeile {
+  list-style: none; /* Entfernt die Listenpunkte */
+  text-align: center; /* Zentriert den Text in der gesamten Kopfzeile */
+  padding: 0; /* Entfernt den Standardabstand der Liste */
+
+}
+
+.kopfzeile li {
+  display: inline; /* Lässt die Listenelemente nebeneinander erscheinen */
+  margin-right: 10px; /* Fügt Abstand zwischen den Listenelementen hinzu */
+}
+
+.kopfzeile a {
+  text-decoration: none; /* Entfernt die Unterstreichung der Links */
+  font-size: 200%;
+}
+
+.headline {
+  text-align: center;
+  font-size: 250%;
+  font-weight: bolder;
+  text-decoration: underline;
+}
+
+
+h3 {
+  border-color: yellow;
+  border-top: thin dashed purple;
+  color: green;
+}
+
+div {
+  border: 4px solid; /* Rahmen rundherum */
+  padding: 0px; /* Innenabstand */
+  margin: 0px; /* Außenabstand */
+}
+
+span {
+  text-decoration: inherit;
+  color: blue;
+  font-size: 155%;
+
+
+}
+
+/* KLASSEN */
+
+.farbverlauf {
+  font-size: 48px;
+  font-weight: bold;
+  background: linear-gradient(10deg, brown, red);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.bigger {
+  font-size: 900%;
+}
+
+h1.hinweis {
+  color: red;
+}
+
+#einleitung {
+  font-style: italic;
+  font-size: 500%;
+  font-weight: bolder;
+  text-decoration: underline;
+
+}
+
+ul {list-style-type: square;}
+ol {
+  list-style-image: url('images/kurumifox.jpeg');
+}
+
+ol li {
+  list-style-type: none; /* Entfernt den standardmäßigen Listenmarker */
+  padding-left: 20px; /* Einstellen des Abstands zwischen dem Listenmarker und dem Text */
+}
+
+ol li::before {
+  content: ""; /* Hinzufügen eines leeren Inhalts, um das Bild einzufügen */
+  display: inline-block; /* In eine Zeile einfügen */
+  width: 1em; /* Einstellen der Breite auf das gleiche Maß wie der Standard-Listenmarker */
+  height: 1em; /* Einstellen der Höhe auf das gleiche Maß wie der Standard-Listenmarker */
+  background: url('kurumifox.jpeg') center/cover; /* Hinzufügen des Bildes und Zentrieren mit Abdeckung */
+  margin-right: 3px; /* Einstellen des Abstands zwischen dem Bild und dem Text */
+  border-radius: 50%;
+}
+
+
+
+.bild-links {
+  margin-left: 0;
+}
+
+.links-abstand {
+  margin-left: 40px;
+}
